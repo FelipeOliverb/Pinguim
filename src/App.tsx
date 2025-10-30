@@ -1,21 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import icon from "./assets/icon.png"; // favicon importado
 
 function App() {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Define o favicon
+  useEffect(() => {
+    const link: HTMLLinkElement | null = document.querySelector(
+      "link[rel~='icon']"
+    );
+    if (link) {
+      link.href = icon;
+    } else {
+      const newLink = document.createElement("link");
+      newLink.rel = "icon";
+      newLink.href = icon;
+      document.head.appendChild(newLink);
+    }
+  }, []);
 
   const gerarPinguim = async () => {
     setLoading(true);
     setImageUrl("");
 
     try {
-
-      const res = await fetch("https://api.pexels.com/v1/search?query=penguin&per_page=50", {
-        headers: {
-          Authorization: "ca48C6ePYquDTDaj29EvWaB8gz33YL5oldNBEWWi4sFnZHAw0ZMIwGrm", // 🔑 coloque sua API key do Pexels aqui
-        },
-      });
+      const res = await fetch(
+        "https://api.pexels.com/v1/search?query=penguin&per_page=50",
+        {
+          headers: {
+            Authorization:
+              "ca48C6ePYquDTDaj29EvWaB8gz33YL5oldNBEWWi4sFnZHAw0ZMIwGrm", // sua API key do Pexels
+          },
+        }
+      );
 
       if (!res.ok) throw new Error("Erro ao buscar imagem");
 

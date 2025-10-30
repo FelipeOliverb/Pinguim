@@ -11,7 +11,7 @@ body {
 
 .app {
   text-align: center;
-  background: #2370ff;
+  background: linear-gradient(135deg, #2370ff 0%, #80b3ff 100%);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
