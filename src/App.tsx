@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import icon from "./assets/icon.png"; // favicon importado
+import icon from "./assets/icon.png"; 
 
 function App() {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Define o favicon
+
   useEffect(() => {
     const link: HTMLLinkElement | null = document.querySelector(
       "link[rel~='icon']"
@@ -31,7 +31,7 @@ function App() {
         {
           headers: {
             Authorization:
-              "ca48C6ePYquDTDaj29EvWaB8gz33YL5oldNBEWWi4sFnZHAw0ZMIwGrm", // sua API key do Pexels
+              "ca48C6ePYquDTDaj29EvWaB8gz33YL5oldNBEWWi4sFnZHAw0ZMIwGrm", 
           },
         }
       );
