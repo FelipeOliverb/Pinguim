@@ -6,7 +6,7 @@ function App() {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Define o favicon
+  
   useEffect(() => {
     const link: HTMLLinkElement | null = document.querySelector(
       "link[rel~='icon']"
